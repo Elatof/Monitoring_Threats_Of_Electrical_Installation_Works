@@ -1,0 +1,18 @@
+openweather-api:
+  url: "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={token}&lang=uk&units=metric"
+  token: ""
+treatment-config:
+  radius: 10
+  points: 4
+  levelsColor:
+    0: "rgba(189, 186, 186, 0.4)"     #gray
+    1: "rgba(93, 227, 0, 0.4)"        #green 1
+    2: "rgba(81, 190, 190, 0.4)"      #green 2
+    3: "rgba(64, 152, 4, 0.4)"        #green 3
+    4: "rgba(255, 236, 0, 0.4)"       #yellow 1
+    5: "rgba(213, 197, 4, 0.4)"       #yellow 2
+    6: "rgba(183, 170, 5, 0.4)"       #yellow 3
+    7: "rgba(255, 1, 1, 0.4)"         #red 1
+    8: "rgba(215, 3, 3, 0.4)"         #red 2
+    9: "rgba(153, 4, 4, 0.4)"         #red 3
+    10: "rgba(0, 0, 0, 0.4)"          #black

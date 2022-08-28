@@ -1,0 +1,134 @@
+config-conditions:
+  criticalWindSpeed: 42
+  weatherConditions:
+    # Group 2xx: Thunderstorm
+    200:
+      description: "thunderstorm with light rain"
+      treatmentLevel: 7
+    201:
+      description: "thunderstorm with rain"
+      treatmentLevel: 8
+    202:
+      description: "thunderstorm with heavy rain"
+      treatmentLevel: 9
+    210:
+      description: "light thunderstorm"
+      treatmentLevel: 6
+    211:
+      description: "thunderstorm"
+      treatmentLevel: 7
+    212:
+      description: "heavy thunderstorm"
+      treatmentLevel: 8
+    221:
+      description: "ragged thunderstorm"
+      treatmentLevel: 9
+    230:
+      description: "thunderstorm with light drizzle"
+      treatmentLevel: 7
+    231:
+      description: "thunderstorm with drizzle"
+      treatmentLevel: 7
+    232:
+      description: "thunderstorm with heavy drizzle"
+      treatmentLevel: 8
+    # Group 3xx: Drizzle
+    300:
+      description: "light intensity drizzle"
+      treatmentLevel: 2
+    301:
+      description: "drizzle"
+      treatmentLevel: 2
+    302:
+      description: "heavy intensity drizzle"
+      treatmentLevel: 3
+    310:
+      description: "light intensity drizzle rain"
+      treatmentLevel: 3
+    311:
+      description: "drizzle rain"
+      treatmentLevel: 4
+    312:
+      description: "heavy intensity drizzle rain"
+      treatmentLevel: 4
+    313:
+      description: "shower rain and drizzle"
+      treatmentLevel: 5
+    314:
+      description: "heavy shower rain and drizzle"
+      treatmentLevel: 5
+    321:
+      description: "shower drizzle"
+      treatmentLevel: 6
+    # Group 5xx: Rain
+    500:
+      description: "light rain"
+      treatmentLevel: 3
+    501:
+      description: "moderate rain"
+      treatmentLevel: 4
+    502:
+      description: "heavy intensity rain"
+      treatmentLevel: 5
+    503:
+      description: "very heavy rain"
+      treatmentLevel: 6
+    504:
+      description: "extreme rain"
+      treatmentLevel: 7
+    511:
+      description: "freezing rain"
+      treatmentLevel: 6
+    520:
+      description: "light intensity shower rain"
+      treatmentLevel: 6
+    521:
+      description: "shower rain"
+      treatmentLevel: 7
+    522:
+      description: "heavy intensity shower rain"
+      treatmentLevel: 7
+    531:
+      description: "ragged shower rain"
+      treatmentLevel: 8
+    # Group 6xx: Snow
+    600:
+      description: "light snow"
+      treatmentLevel: 2
+    601:
+      description: "Snow"
+      treatmentLevel: 3
+    602:
+      description: "Heavy snow"
+      treatmentLevel: 5
+    611:
+      description: "Sleet"
+      treatmentLevel: 5
+    612:
+      description: "Light shower sleet"
+      treatmentLevel: 6
+    613:
+      description: "Shower sleet"
+      treatmentLevel: 7
+    615:
+      description: "Light rain and snow"
+      treatmentLevel: 7
+    616:
+      description: "Rain and snow"
+      treatmentLevel: 7
+    620:
+      description: "Light shower snow"
+      treatmentLevel: 7
+    621:
+      description: "Shower snow"
+      treatmentLevel: 8
+    622:
+      description: "Heavy shower snow"
+      treatmentLevel: 8
+    # Group 7xx: Atmosphere
+    771:
+      description: "Squalls"
+      treatmentLevel: 7
+    781:
+      description: "Tornado"
+      treatmentLevel: 10
