@@ -24,7 +24,6 @@ class MainMap extends Component {
                 this.setState({ polygons: initialPolygons });
                 this.setState({ isLoaded: true });
             });
-
         
     }
 
@@ -36,7 +35,7 @@ class MainMap extends Component {
                 {this.state.isLoaded ? (
                     <>
                         <ReactBingmaps
-                            bingmapKey="AoORHdJLECgUf06JJ152s4wWjjyCg5etwyoYBtJvbjUqV-OvknDXKwT9ATzETwPy"
+                            bingmapKey=""
                             center={[48.747111, 32.317217]} //center of Ukraine
                             zoom={6}
                             regularPolygons={this.state.polygons}>
