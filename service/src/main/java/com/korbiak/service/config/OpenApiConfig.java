@@ -11,5 +11,6 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource(value = "classpath:application.yml", factory = YamlPropertySourceFactory.class)
 public class OpenApiConfig {
     private String url;
+    private String forecastUrl;
     private String token;
 }

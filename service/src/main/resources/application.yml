@@ -1,6 +1,49 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/elec_threat_db
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: '023843'
+    jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: none
+      properties:
+        hibernate:
+          format_sql: true
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+          current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+  sql:
+    init:
+      schema-locations: classpath:/static/schema.sql
+      mode: always
+  servlet:
+    multipart:
+      max-file-size: 1206330
+      max-request-size: 1206330
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: maxmap316@gmail.com
+    password: shxfhkvzwtykmiji
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          starttls:
+            enable: true
+
 openweather-api:
   url: "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={token}&lang=uk&units=metric"
-  token: "13fe5efb8fbad3ae5513126f43350172"
+  forecastUrl: "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={token}&lang=uk&units=metric&exclude=hourly,dail&cnt=8"
+  token: ""
+lightning-api:
+  url: "http://localhost:8081/lightning/hits?lat={lat}&lon={lon}&weatherCode={weatherCode}"
+  format: "json"
+  iconImage: "https://res.cloudinary.com/elatof/image/upload/c_scale,q_100:444,w_20/v1661881448/treatment-weather/lightning-flat_afiwtf.png"
 treatment-config:
   radius: 10
   points: 4
@@ -16,3 +59,17 @@ treatment-config:
     8: "rgba(215, 3, 3, 0.4)"         #red 2
     9: "rgba(153, 4, 4, 0.4)"         #red 3
     10: "rgba(0, 0, 0, 0.4)"          #black
+jwt:
+  token:
+    secret: testObj
+    expired: 3600000
+
+cloudinaryValue:
+  cloudName: 'elatof'
+  apiKey: 619376921193877
+  apiSecretKey: '-FVTjphyYAGVQ5vvZFGFScqhFl4'
+
+twilioValue:
+  sid: 'AC60457fbd2bba222d37d107b7bd5351ec'
+  token: '07d28ba182bf6e841b5cdb2731ff1384'
+  number: '+12016279637'

@@ -1,0 +1,67 @@
+div.signin{
+    color: rgba(144,104,63,255);
+    text-align: center;
+    background-color: rgba(49,51,50,255);
+    border-style: solid;
+    border-color: rgba(144,104,63,255);
+}
+
+span.info{
+  color: white;
+  font-size: 0.95em;
+}
+
+input.signin, select {
+    width: 15%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input.signin{
+    width: 15%;
+    background-color: rgba(143,102,61,255);
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  ::placeholder {
+    color: rgb(255, 255, 255);
+    opacity: 1; 
+  }
+  
+  input:hover {
+    background-color: rgba(146,95,72,255);
+  }
+
+  button.myButton {
+	background-color:rgba(144,104,63,255);
+	-moz-border-radius:20px;
+	-webkit-border-radius:20px;
+	border-radius:28px;
+	border:1px solid lightblue;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:10px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+button.myButton:hover {
+	background-color:rgba(146,95,72,255);
+}
+button.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+  

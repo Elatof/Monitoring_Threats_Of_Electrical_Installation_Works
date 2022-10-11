@@ -2,10 +2,10 @@ button.reload {
     float: right;
     margin-right: 1.5%;
     color: #3367d6;
-    border-color: rgba(0,0,0,.12);
+    border-color: rgba(0, 0, 0, .12);
     box-shadow: 0 0 0 0 rgb(0 0 0 / 20%), 0 0 0 0 rgb(0 0 0 / 14%), 0 0 0 0 rgb(0 0 0 / 12%);
     z-index: 0;
-    border-bottom: 1px solid rgba(0,0,0,.12);
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
     text-decoration: none;
     text-transform: none;
     cursor: pointer;
@@ -27,7 +27,7 @@ button.reload {
     text-decoration-color: rgb(51, 103, 214);
     vertical-align: baseline;
     text-align: center;
-    
+
     min-width: 64px;
     line-height: 36px;
     padding: 0 16px;
@@ -36,7 +36,7 @@ button.reload {
 
     box-sizing: border-box;
 
-    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
     font-size: 14px;
     font-weight: 500;
 
@@ -49,7 +49,7 @@ button.reload {
     cursor: pointer;
 
     text-size-adjust: 100%;
-    
+
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
@@ -75,7 +75,7 @@ button.reload {
     text-decoration-style: initial;
     text-decoration-color: initial;
 
-    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
     font-size: 14px;
     font-weight: 500;
 
@@ -104,4 +104,66 @@ button.reload {
 
     box-shadow: 0 0 0 0 rgb(0 0 0 / 20%), 0 0 0 0 rgb(0 0 0 / 14%), 0 0 0 0 rgb(0 0 0 / 12%);
 
+}
+
+:root {
+    --main-color: rgb(104, 117, 217);
+    --main-color-hover: rgb(104, 117, 217, 0.2);
+    --track-color: #ddd;
+}
+
+.customSlider {
+    /* max width of your slider */
+    max-width: 600px;
+    /* Optional: Only If you want to center your slider in the page */
+    margin: auto;
+
+    --mark-color: #aaaaaa;
+}
+
+.customSlider-track {
+    /* Top value to align your track to the center of your thumb */
+    top: 8px;
+    /* thickness of the track */
+    height: 4px;
+    /* default color of your track */
+    background: var(--track-color);
+}
+
+.customSlider-track.customSlider-track-0 {
+    /* color of the track before the thumb */
+    background: var(--main-color);
+}
+
+.customSlider-thumb {
+    cursor: pointer;
+    /*color for the thumb */
+    background: var(--main-color);
+    /* shape of the thumb: circle */
+    width: 23px;
+    height: 23px;
+    border-radius: 100%;
+    /* remove default outline when selected */
+    outline: none;
+}
+
+.customSlider-thumb:hover {
+    box-shadow: 0 0 0 8px var(--main-color-hover);
+}
+
+:root {
+    --main-color: rgb(104, 117, 217);
+    --main-color-hover: rgb(104, 117, 217, 0.2);
+    --track-color: #ddd;
+    /* Default mark color*/
+    --mark-color: #aaaaaa;
+}
+
+.customSlider-mark {
+    color: "white";
+    cursor: pointer;
+    top: 6px;
+    width: 1.5px;
+    height: 8px;
+    background-color: var(--mark-color);
 }

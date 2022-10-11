@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useGeolocated } from "react-geolocated";
 import { NotificationManager } from 'react-notifications';
 import "./Weather.css"
+import Cookies from 'universal-cookie';
 
 function Weather() {
     const { coords, isGeolocationAvailable, isGeolocationEnabled } =
@@ -14,11 +15,25 @@ function Weather() {
 
     const [response, setResponse] = useState();
     if (coords && !response) {
-        console.log(response);
-        fetch(`http://localhost:8080/service-api/weather/current?lat=${coords.latitude}&lon=${coords.longitude}`)
+        let cookie = new Cookies();
+        fetch(`http://localhost:8080/service-api/weather/current?lat=${coords.latitude}&lon=${coords.longitude}`,
+            {
+                headers: {
+                    "Authorization": "Bearer " + cookie.get('token')
+                }
+            })
             .then(response => { return response.json(); })
-            .then(data => { setResponse(data); })
-
+            .then(data => { 
+                setResponse(data); 
+                console.log("Log:" + data.treatmentLevel);
+                let level = data.treatmentLevel;
+                if(level > 4 && level < 7) {
+                    NotificationManager.warning('Ви знаходитесь в регіоні з рівнем загрози: ' + level + ', будьте обережні');
+                }
+                if(level > 6) {
+                    NotificationManager.warning('Ви знаходитесь в регіоні з рівнем загрози: ' + level + ', будьте обережні');
+                }
+            })
     }
 
     return !isGeolocationAvailable ? (

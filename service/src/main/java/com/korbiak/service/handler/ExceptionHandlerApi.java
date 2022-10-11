@@ -1,6 +1,5 @@
 package com.korbiak.service.handler;
 
-import com.korbiak.service.cache.CacheException;
 import com.korbiak.service.handler.error.ApiError;
 import com.korbiak.service.handler.error.ApiSubError;
 import com.korbiak.service.handler.error.ApiValidationError;
@@ -18,6 +17,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import javax.persistence.EntityNotFoundException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,22 +52,11 @@ public class ExceptionHandlerApi extends ResponseEntityExceptionHandler {
         return getApiError(exception, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    /**
-     * Error handling for all CacheException
-     * @param exception CacheException
-     * @return ApiError
-     */
-    @ExceptionHandler(CacheException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    protected ApiError handleCacheException(CacheException exception) {
-        return getApiError(exception, HttpStatus.INTERNAL_SERVER_ERROR);
+    @ExceptionHandler(EntityNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    protected ApiError handleEntityNotFound(EntityNotFoundException exception) {
+        return getApiError(exception, HttpStatus.NOT_FOUND);
     }
-
-//    @ExceptionHandler(EntityNotFoundException.class)
-//    @ResponseStatus(HttpStatus.NOT_FOUND)
-//    protected ApiError handleEntityNotFound(EntityNotFoundException exception) {
-//        return getApiError(exception, HttpStatus.NOT_FOUND);
-//    }
 
     /**
      * Error handling for all MethodArgumentNotValidException
