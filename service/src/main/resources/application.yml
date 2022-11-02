@@ -25,7 +25,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: maxmap316@gmail.com
-    password: shxfhkvzwtykmiji
+    password:
     properties:
       mail:
         smtp:
@@ -67,9 +67,9 @@ jwt:
 cloudinaryValue:
   cloudName: 'elatof'
   apiKey: 619376921193877
-  apiSecretKey: '-FVTjphyYAGVQ5vvZFGFScqhFl4'
+  apiSecretKey: ''
 
 twilioValue:
   sid: 'AC60457fbd2bba222d37d107b7bd5351ec'
-  token: '07d28ba182bf6e841b5cdb2731ff1384'
+  token: ''
   number: '+12016279637'

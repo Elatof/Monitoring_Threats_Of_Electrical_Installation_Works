@@ -5,6 +5,9 @@ import com.korbiak.service.model.entities.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 @RequiredArgsConstructor
 public class UserMapper implements Mapper<UserDto, User> {

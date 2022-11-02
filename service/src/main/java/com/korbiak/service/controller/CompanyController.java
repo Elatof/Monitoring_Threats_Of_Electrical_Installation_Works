@@ -16,6 +16,11 @@ public class CompanyController {
     private final CompanyService companyService;
 
 
+    @GetMapping("{companyId}")
+    public CompanyDto getCompany(@PathVariable int companyId) {
+        return companyService.getById(companyId);
+    }
+
     @GetMapping
     public List<CompanyDto> getAllCompanies() {
         return companyService.getAll();

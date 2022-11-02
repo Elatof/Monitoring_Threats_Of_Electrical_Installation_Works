@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -37,7 +38,10 @@ public class CompanyServiceImpl implements CompanyService {
     @Override
     public List<CompanyDto> getAll() {
         List<Company> companies = companyRepo.findAll();
-        return companyMapper.toDtos(companies);
+
+        return companyMapper.toDtos(companies.stream()
+                .filter(company -> company.getId() != 1) // filter out company for main admin
+                .collect(Collectors.toList()));
     }
 
     @Override
@@ -50,7 +54,13 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public CompanyDto updateCompany(CompanyDto company, MultipartFile image) {
-        Company companyEntity = companyMapper.toEntity(company);
+        Optional<Company> byId = companyRepo.findById(company.getId());
+        if (byId.isEmpty()) {
+            throw new IllegalArgumentException("Not found company with id: " + company.getId());
+        }
+        Company companyEntity = byId.get();
+        companyEntity.setName(company.getName());
+
         return getCompanyDto(image, companyEntity);
     }
 
@@ -62,8 +72,8 @@ public class CompanyServiceImpl implements CompanyService {
             } catch (IOException e) {
                 log.error("Error save image to cloudinary: {}", e.getMessage());
             }
+            companyEntity.setLogoPath(url);
         }
-        companyEntity.setLogoPath(url);
         companyRepo.save(companyEntity);
         return companyMapper.toDto(companyEntity);
     }

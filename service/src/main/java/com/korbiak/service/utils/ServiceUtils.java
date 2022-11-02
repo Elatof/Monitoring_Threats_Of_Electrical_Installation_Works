@@ -1,7 +1,10 @@
 package com.korbiak.service.utils;
 
+import com.korbiak.service.security.jwt.JwtUser;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.sql.Timestamp;
 import java.util.Collections;
@@ -27,5 +30,12 @@ public class ServiceUtils {
         } catch (IndexOutOfBoundsException ex) {
             return null;
         }
+    }
+
+    public static String getAuthority() {
+        JwtUser user = (JwtUser) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<GrantedAuthority> authorities = (List<GrantedAuthority>) user.getAuthorities();
+        GrantedAuthority grantedAuthority = authorities.get(0);
+        return grantedAuthority.getAuthority();
     }
 }
