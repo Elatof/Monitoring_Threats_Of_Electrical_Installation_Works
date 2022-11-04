@@ -1,0 +1,11 @@
+tr.company {
+    border-left: 8px solid rgb(104, 117, 217);;
+    border-bottom: 2px solid rgb(104, 117, 217);
+    width: 120px;
+    border-bottom-left-radius: 50%;
+    font-family: Roboto, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+}

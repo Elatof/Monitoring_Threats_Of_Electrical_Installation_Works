@@ -10,6 +10,7 @@ import com.korbiak.service.model.weathermodels.Weather;
 import com.korbiak.service.model.weathermodels.WeatherApiResponse;
 import com.korbiak.service.repos.AlertInfoRepo;
 import com.korbiak.service.repos.UserRepo;
+import com.korbiak.service.repos.WeatherRepo;
 import com.korbiak.service.security.jwt.JwtUser;
 import com.korbiak.service.service.ElectTreatmentService;
 import com.korbiak.service.service.WeatherScheduler;
@@ -42,6 +43,8 @@ public class WeatherServiceImpl implements WeatherService {
     private final SmsSender smsSender;
 
     private final EmailSender emailSender;
+
+    private final WeatherRepo weatherRepo;
 
     /**
      * Get weather conditional
@@ -122,6 +125,6 @@ public class WeatherServiceImpl implements WeatherService {
 
     @Override
     public List<WeatherApiResponse> getAllWeather() {
-        return new ArrayList<>();
+        return weatherRepo.findAll();
     }
 }

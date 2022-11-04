@@ -50,7 +50,6 @@ class SignInForm extends Component {
                 cookies.set('token', data, { path: '/', maxAge: 3600 });
                 const { history } = this.props;
                 history.push("/auth");
-                window.location.reload(false);
             }
         });
     }
@@ -60,7 +59,7 @@ class SignInForm extends Component {
         
         return (
             <div className="signin">
-                Для подальшої роботи у системі потрібно ввести свої персональні дані
+                <img src="https://res.cloudinary.com/elatof/image/upload/v1667046135/treatment-weather/login_qhcgrd.png" alt="Login logo" width="540" height="200"></img>
                 <form onSubmit={this.onSubmit}>
                     <div>
                         <input className="signin" type="text" id="name" required={true} placeholder="Введіть ім'я" name="firstName" onChange={this.handleChange} />
@@ -76,7 +75,6 @@ class SignInForm extends Component {
 
                     <button className="myButton">Увійти</button>
                 </form>
-                На цю сторінку вас автоматично переадресовує якщо:<span className="info">1. Ви не авторизовані 2. Час сесії сплив (1 год.)</span>
             </div>
         );
     }
