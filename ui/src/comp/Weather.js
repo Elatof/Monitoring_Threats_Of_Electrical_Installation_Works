@@ -64,11 +64,7 @@ function Weather() {
                         <td><b>Швидкість вітру: </b></td>
                         <td>{response.wind.speed} м.с.</td>
                     </tr>
-                </tbody>
-            </table>
-            <table className="treatment">
-                <tbody>
-                    <tr>
+                    <tr >
                         <td><b>Рівень загрози: </b></td>
                         <td style={{ background: response.treatmentColor }}>{response.treatmentLevel}</td>
                     </tr>

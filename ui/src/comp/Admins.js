@@ -32,8 +32,7 @@ class Admins extends Component {
         let inc = 0;
         return (
             <div className="mainDivType">
-                Список адміністраторів
-                <Link className="addNewType" to="/auth/admins-create/">+</Link>
+                <div className="heade">Список адміністраторів <Link className="addNewType" to="/auth/admins-create/"><img className="add" src="https://res.cloudinary.com/elatof/image/upload/v1667146304/treatment-weather/add_opk2dr.webp" alt="Login logo" width="35" height="25"></img></Link></div>
                 <table>
                     <tbody>
                         {

@@ -33,7 +33,7 @@ class Companies extends Component {
         return (
             <div className="mainDivType">
                 <div className="heade">Список компаній <Link className="addNewType" to="/auth/comapnies-create/"><img className="add" src="https://res.cloudinary.com/elatof/image/upload/v1667146304/treatment-weather/add_opk2dr.webp" alt="Login logo" width="35" height="25"></img></Link></div>
-                <table>
+                <table className='company'>
                     <tbody>
                         {
                             this.state.items.map(item => {

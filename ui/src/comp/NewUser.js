@@ -9,7 +9,8 @@ class NewUser extends Component {
         super();
         this.state = {
             user: {},
-            companies: []
+            companies: [],
+            userTypeDesc: "користувача"
         }
 
         this.onSubmit = this.onSubmit.bind(this);
@@ -42,6 +43,7 @@ class NewUser extends Component {
         this.state.user.isAdmin = userType;
         if (userType === 2) { //Admin
             url = url + `admin`;
+            this.setState({ userTypeDesc: "адміністратора" });
         }
 
         fetch(url, {
@@ -78,7 +80,7 @@ class NewUser extends Component {
         return (
             <div className="newItem">
                 <form onSubmit={this.onSubmit}>
-                    <b>Створення нового користувача</b>
+                    <div className="heade">Cтворення нового {this.state.userTypeDesc}</div>
                     <p />
                     <input className="newItem" type="text" id="name" required={true} placeholder="Введіть ім'я" name="name" onChange={(e) => this.state.user.firstName = e.target.value} />
                     <p />

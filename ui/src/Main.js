@@ -13,6 +13,8 @@ import Admins from './comp/Admins';
 import UserDetails from './comp/UserDetails';
 import NewUser from './comp/NewUser';
 import Users from './comp/Users';
+import Popup from 'reactjs-popup';
+import FAQ from './comp/FAQ';
 
 
 
@@ -22,9 +24,9 @@ function parseJwt(token) {
 }
 
 function visibleLink(user, name) {
-  let userAccess = ["brand", "type", "item", "customer", "order"]
-  let adminAccess = ["user", "department"]
-  let mainAdminAccess = ["admin", "stat"]
+  let userAccess = ["user"]
+  let adminAccess = ["user", "users"]
+  let mainAdminAccess = ["user", "admins", "companies"]
 
   let answer = false;
   if (user.roles === "USER") {
@@ -41,15 +43,6 @@ function visibleLink(user, name) {
     });
   }
   return answer;
-}
-
-function visiblecolorPick(user, name) {
-  let answer = visibleLink(user, name);
-
-  if (answer) {
-    return "on";
-  }
-  return "off";
 }
 
 function Main() {
@@ -98,16 +91,39 @@ function Main() {
 
   return userInfo ? (
     <div>
+
+      <Popup
+        trigger={<img className='additional' src="https://res.cloudinary.com/elatof/image/upload/v1667743454/treatment-weather/additional_lnoj6z.png" alt="Login logo" width="50" height="50"></img> }
+        modal
+        nested
+      >
+        {close => (
+          <div>
+            <div className="heade">Додаткові можливості</div>
+            <div style={{fontSize: 18}}>
+              {' '}
+              <b>Адміністратори</b> мають можливості для додаткових дій з системою працівників які прикріплені до них (створення, видалення ...)
+              <br />
+              <b>Головний адміністратор</b> має можливість для додаткових дій з системою компаній та їх адміністраторів (створення, видалення ...)
+              <br />
+              <b>Парцівник</b> має можливість переглянути інформацію лише про себе
+            </div>
+            <div>
+              { visibleLink(user, "user") ? <Link className="f" to={`${match.url}/user-details/` + userInfo.id}>{userInfo.firstName}{userInfo.secondName} особиста інформація</Link> : null }
+              { visibleLink(user, "companies") ? <Link className="f" to={`${match.url}/comapnies/`}>Компанії </Link> : null }
+              { visibleLink(user, "admins") ? <Link className="f" to={`${match.url}/admins/`}>Адміністратори </Link> : null }
+              { visibleLink(user, "users") ? <Link className="f" to={`${match.url}/users/`}>Працівники </Link> : null }
+              <Link className="f" to={`${match.url}/FAQ/`}>FAQ </Link>
+            </div>
+          </div>
+        )}
+      </Popup>
+
       <div className="userInfo">
         <img className="companyIcon" src={userInfo.company.logoPath} alt="Icon of company" width="100" height="75"></img>
         <Link className="userInfo" to={`${match.url}/user-details/` + userInfo.id}>{userInfo.firstName}<br></br>{userInfo.secondName}</Link>
-      </div>
-      <button className="logout" onClick={routeChange}>Вийти з системи</button>
-      <Link className="map" to={`${match.url}/auth`}><img src="https://res.cloudinary.com/elatof/image/upload/v1667127579/treatment-weather/world-map_1f5fa-fe0f_w51trv.png"  alt="Login logo" width="50" height="50"></img></Link>  
-      <div className="links">
-        <Link to={`${match.url}/comapnies/`}>Компанії </Link>
-        <Link to={`${match.url}/admins/`}>Адміністратори </Link>
-        <Link to={`${match.url}/users/`}>Працівники </Link>
+        <button className="logout" onClick={routeChange}>Вийти з системи</button>
+      <Link className="map" to={`${match.url}/auth`}><img src="https://res.cloudinary.com/elatof/image/upload/v1667127579/treatment-weather/world-map_1f5fa-fe0f_w51trv.png" alt="Login logo" width="50" height="50"></img></Link>
       </div>
       <Switch>
         <Route path={`${match.url}/user-details/:Id`} component={() => <UserInfo {...userInfo} />} />
@@ -119,6 +135,7 @@ function Main() {
         <Route path={`${match.url}/admins-create/`} component={() => <NewUser userType={2} />} />
         <Route path={`${match.url}/users/`} component={Users} />
         <Route path={`${match.url}/users-create/`} component={() => <NewUser userType={1} />} />
+        <Route path={`${match.url}/FAQ/`} component={FAQ} />
         <Route path={`/auth`} component={Common} />
       </Switch>
     </div>

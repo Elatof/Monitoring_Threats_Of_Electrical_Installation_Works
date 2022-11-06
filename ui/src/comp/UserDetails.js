@@ -55,8 +55,7 @@ class UserDetails extends Component {
         console.log(this.state.user);
         return (
             <div className="mainDivDetailsItem">
-                
-                <b>Детальна інформація про користувача</b><br />
+                <div className="heade">Детальна інформація про користувача {this.state.user.firstName} {this.state.user.secondName}</div>
                 <b>Унікальне айді: </b>{this.state.user.id}<br />
                 <b>Ім'я: </b>{this.state.user.firstName}<br />
                 <b>Прізвище: </b>{this.state.user.secondName}<br />
@@ -64,9 +63,9 @@ class UserDetails extends Component {
                 <b>Поштова скринька: </b>{this.state.user.email}<br />
                 <b>День народження: </b>{this.state.user.dayOfBirth}<br />
                 <b>Посада: </b>{this.state.user.title}<br />
-                
                 <button className="delete" onClick={this.deleteElem}>Видалити</button>
-                <Link className="update" to={"/auth/items-update/" + this.state.user.id}>Обновити</Link>
+                <Link className="updateLink" to={"/auth/items-update/" + this.state.user.id}>Обновити</Link>
+            
             </div>
         );
     }

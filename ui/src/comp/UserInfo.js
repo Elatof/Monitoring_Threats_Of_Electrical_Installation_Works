@@ -3,8 +3,6 @@ import {withRouter} from 'react-router';
 
 function UserInfo(props) {
     
-    console.log(props);
-
     return (
         <div>
             <div className="heade">Інформація про користувача {props.firstName} {props.secondName}</div>

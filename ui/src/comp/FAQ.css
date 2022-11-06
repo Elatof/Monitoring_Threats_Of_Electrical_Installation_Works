@@ -1,17 +1,4 @@
-div.location {
-    margin: 4%;
-}
-
-table.treatment {
-    top: 100px;
-}
-
-tr.treatment {
-    
-}
-
-
-div.heade {
+div.header2 {
     border-end-start-radius: 4px;
     border-start-end-radius: 4px;
     background-color: #3367d6;
@@ -30,4 +17,11 @@ div.heade {
     
     border-width: 0 0 0 4px;
     font-size: 1.3em;
+
+    text-align: center;
+}
+
+tbody.levels {
+    position: relative;
+    left: 145%;
 }

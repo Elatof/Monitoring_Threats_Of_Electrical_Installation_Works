@@ -43,7 +43,7 @@ class ComapanyUpdate extends Component {
             image: e.target.files[0]
         })
     };
-    
+
     onSubmit(e) {
         e.preventDefault();
         const Id = this.props.match.params.Id;
@@ -77,15 +77,16 @@ class ComapanyUpdate extends Component {
 
     render() {
         return (
-            <div className="updateCustomer">
+            <div className="newItem">
                 <form onSubmit={this.onSubmit}>
-                    <b>Обновлення даних по компанії</b>
+                    <div className="heade">Обновлення даних по компанії {this.state.name}</div>
                     <p></p>
                     Ім'я:
                     <input className="updateCustomer" type="text" id="name" required={true} placeholder="Enter name" name="name" value={this.state.name} onChange={this.handleChange} />
                     <p></p>
                     Лого компанії:
                     <img src={this.state.logoPath} alt="Icon of item" width="100" height="75"></img>
+                    <br/>
                     <input className="newItem" type="file" id="image" accept="image/png, image/jpeg" onChange={this.handleImageChange} />
                     <p></p>
                     <button className='myButton'>Підтвердити обновлення</button>

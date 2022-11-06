@@ -47,7 +47,7 @@ class NewCompany extends Component {
                 NotificationManager.warning('Помилка вхідних даних, повторіть спробу.');
             }
             if (response.status === 200) {
-                NotificationManager.success('Нове спорядження добавленно');
+                NotificationManager.success('Нове компанія добавленнна');
             }
         }).catch(function () {
             NotificationManager.error('Помилка сервера');

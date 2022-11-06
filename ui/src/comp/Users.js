@@ -32,8 +32,8 @@ class Users extends Component {
         let inc = 0;
         return (
             <div className="mainDivType">
-                Список користувачів
-                <Link className="addNewType" to="/auth/users-create/">+</Link>
+                <div className="heade">Список користувачів <Link className="addNewType" to="/auth/users-create/"><img className="add" src="https://res.cloudinary.com/elatof/image/upload/v1667146304/treatment-weather/add_opk2dr.webp" alt="Login logo" width="35" height="25"></img></Link>
+                </div>
                 <table>
                     <tbody>
                         {

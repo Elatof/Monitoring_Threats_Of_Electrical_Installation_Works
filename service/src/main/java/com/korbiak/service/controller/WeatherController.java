@@ -1,5 +1,6 @@
 package com.korbiak.service.controller;
 
+import com.korbiak.service.dto.WeatherConditionDto;
 import com.korbiak.service.dto.bing.BingMapPolygon;
 import com.korbiak.service.model.weathermodels.WeatherApiResponse;
 import com.korbiak.service.service.ElectTreatmentService;
@@ -26,7 +27,7 @@ public class WeatherController {
     }
 
     @GetMapping("all")
-    public List<WeatherApiResponse> getCurrentWeather() {
+    public List<WeatherConditionDto> getAllWeather() {
         return weatherService.getAllWeather();
     }
 

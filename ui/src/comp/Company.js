@@ -12,7 +12,7 @@ function Company(props) {
             <td>{props.key2} </td>
             <td><img src={item.logoPath} alt="Icon of item" width="100" height="75"></img></td>
             <td><div className="des">{item.name}</div></td>
-            <td><button className="t" onClick={() => deleteElem(item.id, item.name)}><img src="https://res.cloudinary.com/elatof/image/upload/v1667146600/treatment-weather/delete_xc0dvw.png" alt="Login logo" width="20" height="20"></img></button></td>
+            <td><button className="delete" onClick={() => deleteElem(item.id, item.name)}><img src="https://res.cloudinary.com/elatof/image/upload/v1667146600/treatment-weather/delete_xc0dvw.png" alt="Login logo" width="20" height="20"></img></button></td>
             <td><Link className="updateLink" to ={"/auth/company-update/" + item.id}>Змінити</Link></td>
             
         </tr>

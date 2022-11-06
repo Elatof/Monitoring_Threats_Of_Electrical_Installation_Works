@@ -1,16 +1,19 @@
 package com.korbiak.service.service.impl;
 
 import com.korbiak.service.clients.OpenWeatherHttpClient;
+import com.korbiak.service.dto.WeatherConditionDto;
 import com.korbiak.service.dto.bing.Option;
+import com.korbiak.service.mapper.WeatherInfoMapper;
 import com.korbiak.service.messagesenders.EmailSender;
 import com.korbiak.service.messagesenders.SmsSender;
 import com.korbiak.service.model.entities.AlertInfo;
 import com.korbiak.service.model.entities.User;
+import com.korbiak.service.model.entities.WeatherConditions;
 import com.korbiak.service.model.weathermodels.Weather;
 import com.korbiak.service.model.weathermodels.WeatherApiResponse;
 import com.korbiak.service.repos.AlertInfoRepo;
 import com.korbiak.service.repos.UserRepo;
-import com.korbiak.service.repos.WeatherRepo;
+import com.korbiak.service.repos.WeatherCondRepo;
 import com.korbiak.service.security.jwt.JwtUser;
 import com.korbiak.service.service.ElectTreatmentService;
 import com.korbiak.service.service.WeatherScheduler;
@@ -22,7 +25,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -44,7 +47,9 @@ public class WeatherServiceImpl implements WeatherService {
 
     private final EmailSender emailSender;
 
-    private final WeatherRepo weatherRepo;
+    private final WeatherCondRepo weatherRepo;
+
+    private final WeatherInfoMapper weatherInfoMapper;
 
     /**
      * Get weather conditional
@@ -64,7 +69,7 @@ public class WeatherServiceImpl implements WeatherService {
         Weather criticalWeather = weatherScheduler.getCriticalWeather(response);
         int treatmentLevel = criticalWeather.getCriticalLevel();
 
-        if (treatmentLevel > 5){
+        if (treatmentLevel > 5) {
             // send alerts via sms amd email
             sendAlert(treatmentLevel, response);
         }
@@ -79,6 +84,7 @@ public class WeatherServiceImpl implements WeatherService {
 
     /**
      * Send sms and email with alert info if needed
+     *
      * @param treatmentLevel
      * @param response
      */
@@ -124,7 +130,10 @@ public class WeatherServiceImpl implements WeatherService {
     }
 
     @Override
-    public List<WeatherApiResponse> getAllWeather() {
-        return weatherRepo.findAll();
+    public List<WeatherConditionDto> getAllWeather() {
+        LocalDate current = LocalDate.now();
+        LocalDate localDate = current.minusMonths(1);
+        List<WeatherConditions> weatherRepoAll = weatherRepo.findAll();
+        return weatherInfoMapper.toDtos(weatherRepoAll);
     }
 }

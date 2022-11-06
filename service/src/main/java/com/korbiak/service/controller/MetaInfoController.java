@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,7 +26,7 @@ public class MetaInfoController {
     }
 
     @GetMapping("treatment-config")
-    public Map<Integer, String> getTreatmentConfig() {
-        return treatmentConfig.getLevelsColor();
+    public List<String> getTreatmentConfig() {
+        return treatmentConfig.getLevelsColor().values().stream().limit(10).collect(Collectors.toList());
     }
 }

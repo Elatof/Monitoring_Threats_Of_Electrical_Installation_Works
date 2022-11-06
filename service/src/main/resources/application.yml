@@ -25,7 +25,7 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: maxmap316@gmail.com
-    password: shxfhkvzwtykmiji
+    password:
     properties:
       mail:
         smtp:
@@ -39,7 +39,7 @@ spring:
 openweather-api:
   url: "https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={token}&lang=uk&units=metric"
   forecastUrl: "https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={token}&lang=uk&units=metric&exclude=hourly,dail&cnt=8"
-  token: "13fe5efb8fbad3ae5513126f43350172"
+  token: ""
 lightning-api:
   url: "http://localhost:8081/lightning/hits?lat={lat}&lon={lon}&weatherCode={weatherCode}"
   format: "json"
@@ -66,10 +66,10 @@ jwt:
 
 cloudinaryValue:
   cloudName: 'elatof'
-  apiKey: 619376921193877
-  apiSecretKey: '-FVTjphyYAGVQ5vvZFGFScqhFl4'
+  apiKey: 
+  apiSecretKey: ''
 
 twilioValue:
-  sid: 'AC60457fbd2bba222d37d107b7bd5351ec'
-  token: '07d28ba182bf6e841b5cdb2731ff1384'
+  sid: ''
+  token: ''
   number: '+12016279637'

@@ -1,11 +1,22 @@
 tr.company {
-    border-left: 8px solid rgb(104, 117, 217);;
+    border-left: 8px solid rgb(104, 117, 217);
     border-bottom: 2px solid rgb(104, 117, 217);
+    position: relative;
+    width: 150px;
     width: 120px;
     border-bottom-left-radius: 50%;
     font-family: Roboto, sans-serif;
+    margin: 10px;      
+}
+
+table.company {
+    border-collapse: collapse;
+    margin: 10px; 
+    width: 600px;
 }
 
 table {
     border-collapse: collapse;
+    margin: 10px; 
+    width: 800px;
 }
